@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛍️ Tamir Ali Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ✅ सही CSS लिंक -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/891/891419.png">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1><i class="fas fa-store"></i> Tamir Ali Marketplace</h1>
+                <p class="tagline">Quality Products • Google Sheets Powered</p>
+            </div>
+            
+            <div class="header-actions">
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <a href="https://wa.me/918797221991" class="btn-contact" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Order
+                </a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Tamir Ali Marketplace</h2>
+                <p>Real-time products from Google Sheets • Instant WhatsApp orders</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-box"></i>
+                        <span id="productCount">0</span> Products
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-sync-alt"></i>
+                        Live Updates
+                    </div>
+                    <div class="stat">
+                        <i class="fab fa-whatsapp"></i>
+                        Easy Ordering
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Box -->
+        <div class="search-container">
+            <input type="text" id="searchBox" placeholder="Search products..." class="search-input">
+            <div class="filter-info" id="filterInfo">All Products</div>
+        </div>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will load here automatically -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading products from Google Sheets...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Sidebar -->
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                <button class="close-cart" id="closeCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+                <button class="btn-checkout" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+                </button>
+                <button class="btn-clear" id="clearCart">
+                    <i class="fas fa-trash-alt"></i> Clear Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-store"></i> About</h4>
+                    <p>Tamir Ali Marketplace</p>
+                    <p>Powered by Google Sheets API</p>
+                    <p>Real-time inventory management</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-phone-alt"></i> Contact</h4>
+                    <p><i class="fab fa-whatsapp"></i> +91 8797221991</p>
+                    <p>Direct WhatsApp ordering</p>
+                    <p>Instant response</p>
+                </div>
+                <div class="footer-section">
+                    <h4><i class="fas fa-info-circle"></i> How It Works</h4>
+                    <p>1. Browse products</p>
+                    <p>2. Add to cart</p>
+                    <p>3. WhatsApp checkout</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Tamir Ali Marketplace. All products managed via Google Sheets.</p>
+                <p class="dev-note">API: Sheety.co | Real-time Sync | Admin: Click logo 5 times</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ✅ सही JavaScript लिंक -->
+    <script src="script.js"></script>
+    
+    <style>
+        /* Additional inline styles for better appearance */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stat i {
+            font-size: 2rem;
+            color: #fff;
+        }
+        
+        .search-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .search-input:focus {
+            border-color: #3498db;
+        }
+        
+        .filter-info {
+            margin-top: 10px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .loading {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .loading .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</body>
+</html>
